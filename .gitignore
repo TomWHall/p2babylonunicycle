@@ -1,0 +1,9 @@
+node_modules/*
+build/*
+.vs/*
+npm-debug.log.*
+.idea
+*.js
+*.sln
+!webpack.config.js
+!lib/*

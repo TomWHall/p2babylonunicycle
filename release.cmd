@@ -1,0 +1,1 @@
+npx webpack --env.release --progress --colors

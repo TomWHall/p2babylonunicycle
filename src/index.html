@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>p2.js / Babylon.js unicycle demo</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="description" content="A 2.5D unicycle platform game demo combining p2.js and Babylon.js">
+    <meta name="keywords" content="p2,Babylon,js,2.5D,2D,3D,unicycle,game,demo">
+    <meta name="author" content="Tom W Hall">
+
+    <link href="css/main.css" rel="stylesheet"/>
+    <link rel="icon" href="data:,">
+    
+    <script src="lib/Array-flat-polyfill.js"></script>
+    <script src="lib/p2.min.js"></script>
+    <script src="lib/pep.min.js"></script>
+</head>
+
+<body>
+<canvas id="viewport" tabindex="1"></canvas>
+<div id="loading">
+    <div>Loading, please wait...</div>
+</div>
+<div id="info-panel">
+    <ul>
+        <li>
+            <input type="radio" name="ViewMode" value="Oblique" id="view-mode-oblique" checked/>
+            <label for="view-mode-oblique">Oblique view</label>
+        </li>
+        <li>
+            <input type="radio" name="ViewMode" value="Side" id="view-mode-side"/>
+            <label for="view-mode-side">Side view</label>
+        </li>
+    </ul>
+    <p>
+        To move player or to get back up, touch / click on left or right sides of viewport, or use arrow keys.
+    </p>
+    <a href="https://github.com/TomWHall/p2BabylonUnicycle" target="_blank">GitHub</a>
+    <a href="#" id="info-close-button">X</a>
+</div>
+<a href="#" id="info-open-button">
+    <div>?</div>
+</a>
+</body>
+</html>
