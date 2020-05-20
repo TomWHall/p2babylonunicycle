@@ -46,7 +46,7 @@ export default class App {
 
         this.camera = new UniversalCamera(getId(), Vector3.Zero(), scene);
 
-        MaterialFactory.loadAssets(scene)
+        MaterialFactory.loadImages(scene)
             .then(() => {
                 this.addInputHandlers();
 
@@ -154,21 +154,25 @@ export default class App {
             }
         });
 
-        document.getElementById('info-open-button').addEventListener('click', (e: any) => this.handleOpenInfo());
-        document.getElementById('info-close-button').addEventListener('click', (e: any) => this.handleCloseInfo());
+        document.getElementById('info-open-button').addEventListener('click', (e: Event) => this.handleOpenInfo(e));
+        document.getElementById('info-close-button').addEventListener('click', (e: Event) => this.handleCloseInfo(e));
 
-        document.getElementById('view-mode-oblique').addEventListener('change', (e: any) => this.handleViewModeChange(e.target.checked));
-        document.getElementById('view-mode-side').addEventListener('change', (e: any) => this.handleViewModeChange(!e.target.checked));
+        document.getElementById('view-mode-oblique').addEventListener('change', (e: Event) => this.handleViewModeChange((e.target as HTMLInputElement).checked));
+        document.getElementById('view-mode-side').addEventListener('change', (e: Event) => this.handleViewModeChange(!(e.target as HTMLInputElement).checked));
     }
 
-    private handleOpenInfo(): void {
+    private handleOpenInfo(e: Event): void {
+        e.preventDefault();
+        
         document.getElementById('info-panel').style.display = 'block';
         document.getElementById('info-open-button').style.display = 'none';
         
         this.active = false;
     }
 
-    private handleCloseInfo(): void {
+    private handleCloseInfo(e: Event): void {
+        e.preventDefault();
+        
         document.getElementById('info-open-button').style.display = 'flex';
         document.getElementById('info-panel').style.display = 'none';
 

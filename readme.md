@@ -10,16 +10,16 @@ Written in TypeScript, bundled with Webpack.
 
 ## Build
 
-If not installed, install [Node.js](https://nodejs.org/)
-Install NPM packages:
+* If not installed, install [Node.js](https://nodejs.org/)
+* Install NPM packages:
 ```
 npm install
 ```
-To build in release mode:
+* To build in release mode:
 ```
 release.cmd
 ```
-To build in dev mode with file watch:
+* To build in dev mode with file watch:
 ```
 dev.cmd
 ```

@@ -73,7 +73,7 @@ function getMaterial(texture: Texture, width: number, height: number, scaleFacto
 }
 
 export default {
-    loadAssets: loadImages,
+    loadImages: loadImages,
     getMaterial: getMaterial
 }
 
