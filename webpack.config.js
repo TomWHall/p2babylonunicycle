@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { merge } = require('webpack-merge');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -50,11 +50,13 @@ const common = {
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false
         }),
-        new CopyWebpackPlugin([
-            {from: path.join(PATHS.app, 'lib'), to: path.join(PATHS.build, 'lib')},
-            {from: path.join(PATHS.src, 'img'), to: path.join(PATHS.build, 'img')},
-            {from: path.join(PATHS.src, 'css'), to: path.join(PATHS.build, 'css')}
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {from: path.join(PATHS.app, 'lib'), to: path.join(PATHS.build, 'lib')},
+                {from: path.join(PATHS.src, 'img'), to: path.join(PATHS.build, 'img')},
+                {from: path.join(PATHS.src, 'css'), to: path.join(PATHS.build, 'css')}
+            ],
+        }),
         new HtmlWebpackPlugin({
             template: path.join(PATHS.src, 'index.html')
         })
@@ -74,12 +76,12 @@ const common = {
 
 const dev = merge(common, {
     mode: 'development',
-    devtool: 'inline-sourcemap',
+    devtool: 'eval-source-map',
     plugins: [
-        new webpack.WatchIgnorePlugin([
+        new webpack.WatchIgnorePlugin({ paths: [
             /\.js$/,
             /\.d\.ts$/
-        ])
+        ]})
     ]
 });
 

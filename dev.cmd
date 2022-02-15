@@ -1,1 +1,1 @@
-npx webpack --env.dev --progress --colors --watch
+npx webpack --env dev --progress --color --watch
